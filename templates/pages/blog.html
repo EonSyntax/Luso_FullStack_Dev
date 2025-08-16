@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+{% include 'includes/navbar.html'%}
+
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/testimonials-bg.avif);">
+      <div class="container position-relative">
+        <h1>Blog</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="current">Blog</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+<!-- Blog Section -->
+    <section id="blog" class="blog section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2 class="df">Blog</h2>
+            <p></p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+            <div class="row gy-4">
+
+                <!-- Blog Card -->
+                <div class="col-md-3">
+                  <div class="blog-card">
+                    <a href="blog-details.html">
+                      <img src="{% static 'assets/img/about-2.jpg' %}" alt="Blog Image">
+                    </a>
+                    <div class="card-body p-3">
+                      <div class="blog-meta">
+                        <i class="bi bi-person"></i> Admin &nbsp; <br>Mar 21, 2023 • 1 min read
+                      </div>
+                      <h5>
+                        <a href="blog-details.html" class="text-decoration-none text-dark">
+                          5 Lorem ipsum dolor sit amet consectetur.
+                        </a>
+                      </h5>
+                    </div>
+                    <div class="blog-footer p-3 d-flex justify-content-between align-items-center">
+                      <div>
+                        <i class="bi bi-eye"></i> 796
+                        <i class="bi bi-chat"></i> 0
+                      </div>
+                      <div>
+                        <i class="bi bi-heart"></i> 7
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- Blog Card -->
+                <div class="col-md-3">
+                  <div class="blog-card">
+                    <a href="blog-details.html">
+                      <img src="{% static 'assets/img/features-1.jpg' %}" alt="Blog Image">
+                    </a>
+                    <div class="card-body p-3">
+                      <div class="blog-meta">
+                        <i class="bi bi-person"></i> Admin &nbsp; <br>Jul 12, 2025 • 1 min read
+                      </div>
+                      <h5>
+                        <a href="blog-details.html" class="text-decoration-none text-dark">
+                          Lorem ipsum dolor sit amet consectetur adipisicing.
+                        </a>
+                      </h5>
+                    </div>
+                    <div class="blog-footer p-3 d-flex justify-content-between align-items-center">
+                      <div>
+                        <i class="bi bi-eye"></i> 48
+                        <i class="bi bi-chat"></i> 3
+                      </div>
+                      <div>
+                        <i class="bi bi-heart"></i> 6
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- Blog Card -->
+                <div class="col-md-3">
+                  <div class="blog-card">
+                    <a href="blog-details.html">
+                      <img src="{% static 'assets/img/advert.jpg' %}" alt="Blog Image">
+                    </a>
+                    <div class="card-body p-3">
+                      <div class="blog-meta">
+                        <i class="bi bi-person"></i> Admin &nbsp; <br>Apr 13, 2025 • 1 min read
+                      </div>
+                      <h5>
+                        <a href="blog-details.html" class="text-decoration-none text-dark">
+                          5 qualities of successful project managers
+                        </a>
+                      </h5>
+                    </div>
+                    <div class="blog-footer p-3 d-flex justify-content-between align-items-center">
+                      <div>
+                        <i class="bi bi-eye"></i> 84
+                        <i class="bi bi-chat"></i> 0
+                      </div>
+                      <div>
+                        <i class="bi bi-heart"></i> 8
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="col-md-3">
+                <div class="blog-card">
+                    <div class="card-body p-3">
+                    <div class="blog-meta">
+                        <i class="bi bi-person"></i> Admin &nbsp; <br>Jan 6, 2025 • 2 min read
+                    </div>
+                    <h5>Review of the Gibbs Report</h5>
+                    <p>Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entice...</p>
+                    </div>
+                    <div class="blog-footer p-3 d-flex justify-content-between align-items-center">
+                    <div>
+                        <i class="bi bi-eye"></i> 92
+                        <i class="bi bi-chat"></i> 8
+                    </div>
+                    <div>
+                        <i class="bi bi-heart"></i> 6
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Blog Card -->
+                <div class="col-md-3">
+                  <div class="blog-card">
+                    <a href="blog-details">
+                      <img src="{% static 'assets/img/about.jpg' %}" alt="Blog Image">
+                    </a>
+                    <div class="card-body p-3">
+                      <div class="blog-meta">
+                        <i class="bi bi-person"></i> Admin &nbsp; <br>Sep 21, 2025 • 1 min read
+                      </div>
+                      <h5>
+                        <a href="blog-details" class="text-decoration-none text-dark">
+                          Lorem ipsum dolor sit amet consectetur adipisicing.
+                        </a>
+                      </h5>
+                    </div>
+                    <div class="blog-footer p-3 d-flex justify-content-between align-items-center">
+                      <div>
+                        <i class="bi bi-eye"></i> 993
+                        <i class="bi bi-chat"></i> 0
+                      </div>
+                      <div>
+                        <i class="bi bi-heart"></i> 2
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Blog Card -->
+                <div class="col-md-3">
+                  <div class="blog-card">
+                    <div class="card-body p-3">
+                      <div class="blog-meta">
+                        <i class="bi bi-person"></i> Admin &nbsp; <br>Mar 21, 2023 • 1 min read
+                      </div>
+                      <h5>
+                        <a href="blog-details.html" class="text-decoration-none text-dark">
+                          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique.
+                        </a>
+                      </h5>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                    <div class="blog-footer p-3 d-flex justify-content-between align-items-center">
+                      <div>
+                        <i class="bi bi-eye"></i> 796
+                        <i class="bi bi-chat"></i> 0
+                      </div>
+                      <div>
+                        <i class="bi bi-heart"></i> 7
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Add more cards as needed -->
+
+            </div>
+        </div> <!-- End Blog Section -->
+
+    </section><!-- End Blog Section -->
+
+  </main>
+
+{% include 'includes/footer.html' %}
+
+  {% endblock %}

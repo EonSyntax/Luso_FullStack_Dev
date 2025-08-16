@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+{% include 'includes/navbar.html'%}
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/testimonials-bg.avif);">
+      <div class="container position-relative">
+        <h1>Strategy Development</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="current">Strategy Development</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+     <!-- Team Section -->
+    <section id="team" class="team section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 class="df2">Strategy</h2>
+        <p>Development</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/s2.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info6">
+                <h4>Business Model Development Package.</h4>
+                <!-- <span>Crafting the essence and personality of your brand.</span> -->
+                <ul>
+                  <li><i class="bi bi-check"></i><span>In-depth analysis and design of sustainable business models</span></li>
+                  <li><i class="bi bi-check"></i> <span>Revenue stream identification and optimization</span></li>
+                  <li><i class="bi bi-check"></i> <span>Value proposition refinement</span></li>
+                  <li><i class="bi bi-check"></i><span>Customer segmentation and targeting strategies</span></li>
+                </ul>
+                <div class="d-flex mx-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                  <a href="{% url 'packages' %}#strategy" class="btn-get-started">Get Started</a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/s1.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info4">
+                <h4>Market Positioning & Competitor Analysis Package</h4>
+                <!-- <span>Visual storytelling that aligns with strategy.</span> -->
+                <ul>
+                  <li><i class="bi bi-check"></i><span>Comprehensive competitor landscape mapping</span></li> 
+                  <li><i class="bi bi-check"></i> <span>SWOT analysis and opportunity identification</span></li>
+                  <li><i class="bi bi-check"></i> <span>Brand positioning strategy development</span></li>
+                  <li><i class="bi bi-check"></i><span>Market differentiation tactics</span></li>
+                </ul>
+                <div class="d-flex mx-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                  <a href="{% url 'packages' %}#strategy" class="btn-get-started">Get Started</a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/s3.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info5">
+                <h4>Go-to-Market Strategy Package</h4>
+                <!-- <span>Digital platforms that are beautiful, functional, and scalable.</span> -->
+                <ul>
+                  <li><i class="bi bi-check"></i> <span>Launch planning and execution roadmap</span></li>
+                  <li><i class="bi bi-check"></i><span>Target audience profiling and segmentation</span></li>
+                  <li><i class="bi bi-check"></i> <span>Channel selection and marketing mix recommendations</span>.</li>
+                  <li><i class="bi bi-check"></i> <span>Sales strategy alignment and support</span>.</li>
+                  <li><i class="bi bi-check"></i> <span>CMS & Admin Portal Integration</span>.</li>
+                </ul>
+                <div class="d-flex mx-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                  <a href="{% url 'packages' %}#strategy" class="btn-get-started">Get Started</a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/s4.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info7">
+                <h4>Strategic Planning & Innovation Package</h4>
+                <!-- <span>Telling your brand story across every medium.</span> -->
+                <ul>
+                  <li><i class="bi bi-check"></i><span>Long-term strategic goal setting and KPI definition</span></li>
+                  <li><i class="bi bi-check"></i> <span>Innovation workshops and ideation sessions</span></li>
+                  <li><i class="bi bi-check"></i> <span>Risk assessment and mitigation strategies</span></li>
+                  <li><i class="bi bi-check"></i><span>Alignment of organizational capabilities to strategic goals</span></li>
+                </ul>
+                <div class="d-flex mx-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                  <a href="{% url 'packages' %}#strategy" class="btn-get-started">Get Started</a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/s5.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info4">
+                <h4>Digital Transformation Strategy Package</h4>
+                <!-- <span>Building the systems that make everything work together.</span> -->
+                <ul>
+                  <li><i class="bi bi-check"></i> <span>Assessment of current digital maturity</span></li>
+                  <li><i class="bi bi-check"></i><span>Technology roadmap and adoption planning</span></li>
+                  <li><i class="bi bi-check"></i> <span>Process automation and optimization strategies</span></li>
+                  <li><i class="bi bi-check"></i> <span>Change management for digital initiatives</span></li>
+                  <li><i class="bi bi-check"></i> <span>Platform Maintenance & Security</span></li>
+                </ul>
+                <div class="d-flex mx-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                  <a href="{% url 'packages' %}#strategy" class="btn-get-started">Get Started</a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/s6.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info5">
+                <h4>Change Management & Growth Roadmaps Package</h4>
+                <!-- <span>Helping brands evolve through strategic innovation.</span> -->
+                <ul>
+                  <li><i class="bi bi-check"></i><span>Organizational change readiness assessments</span></li>
+                  <li><i class="bi bi-check"></i> <span>Development of tailored change management plans</span></li>
+                  <li><i class="bi bi-check"></i> <span>Growth strategy formulation and milestone setting</span></li>
+                  <li><i class="bi bi-check"></i><span>Employee engagement and communication frameworks</span></li>
+                  <li><i class="bi bi-check"></i> <span>Tech-Brand Alignment Workshops</span></li>
+                </ul>
+                <div class="d-flex mx-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                  <a href="{% url 'packages' %}#strategy" class="btn-get-started">Get Started</a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+        </div>
+      </div>
+    </section><!-- /Team Section -->
+
+  </main>
+
+{% include 'includes/footer.html' %}
+
+  {% endblock %}
