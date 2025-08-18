@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.urls import path
 from .import views
+from lusoapp.views import healthz
+
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -25,4 +27,5 @@ urlpatterns = [
     path('strategy', views.strategy, name='strategy'),
     path('blog', views.blog, name='blog'),
     path('branding', views.branding, name='branding'),
+    path("healthz/", healthz, name="healthz"),
 ]

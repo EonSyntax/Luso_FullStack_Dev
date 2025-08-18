@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.db import connection
 
 # Create your views here.
 def index(request): 
@@ -29,3 +31,11 @@ def packages(request):
     return render(request, 'pages/packages.html')
 
 
+def healthz(request):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT 1")
+        # database is up
+        return HttpResponse("OK", status=200)
+    except Exception:
+        return HttpResponse("DB Error", status=500)
