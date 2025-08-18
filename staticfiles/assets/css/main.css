@@ -1524,6 +1524,17 @@ section,
   border-radius: 5px;
 }
 
+.pricing-item ul li {
+  display: flex;              /* align icon + text properly */
+  align-items: flex-start;    /* force icon to stick to top */
+  gap: 8px;                   /* add spacing between icon & text */
+}
+
+.pricing-item ul li i {
+  /* margin-top: 1px;            optional: fine-tune vertical position */
+  color: green;               /* or any color for the check icon */
+}
+
 .pricing h3 {
   font-weight: 600;
   margin-bottom: 15px;
@@ -1555,11 +1566,11 @@ section,
   line-height: 20px;
 }
 
-.pricing ul li {
+/* .pricing ul li {
   padding: 10px 0;
   display: flex;
   align-items: center;
-}
+} */
 
 .pricing ul i {
   color: #059652;
@@ -2627,5 +2638,89 @@ Blog Details
     
     .social-share {
         padding: 1rem 1.5rem;
+    }
+}
+
+
+  /* WhatsApp Chat Widget */
+  .whatsapp-widget {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+  }
+
+  .whatsapp-container {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 30px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      padding: 0px 10px 0px 0px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .whatsapp-container:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+  }
+
+  .whatsapp-icon {
+      width: 30px;
+      height: 30px;
+      /* background-color: #25d366; */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      flex-shrink: 0;
+  }
+
+  .whatsapp-icon img {
+      width:70px; 
+      height:35px;
+  }
+
+  .chat-text {
+      color: #666666;
+      font-size: 14px;
+      font-weight: 400;
+      white-space: nowrap;
+      margin: 0;
+  }
+
+  .whatsapp-container:hover .chat-text {
+      color: #25d366;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .whatsapp-widget {
+        bottom: 15px;
+        left: 15px;
+    }
+    
+    .whatsapp-container {
+        padding: 0px 10px 0px 0px;
+    }
+    
+    .whatsapp-icon {
+        width: 30px;
+        height: 35px;
+        margin-right: 10px;
+    }
+    
+    .whatsapp-icon img {
+    width:70px; 
+    height:40px;
+    }
+    
+    .chat-text {
+        font-size: 13px;
     }
 }
