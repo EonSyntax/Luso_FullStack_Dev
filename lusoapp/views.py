@@ -39,3 +39,4 @@ def healthz(request):
         return HttpResponse("OK", status=200)
     except Exception:
         return HttpResponse("DB Error", status=500)
+    
