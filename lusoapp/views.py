@@ -1,10 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Clients_logo, Testimonial
 from django.http import HttpResponse
 from django.db import connection
 
 # Create your views here.
-def index(request): 
-    return render(request, 'pages/index.html')
+def index(request):
+    reviews = Testimonial.objects.all()
+    clientsl = Clients_logo.objects.all().order_by('order')  # Assuming Clients_logo is defined in models.py
+    return render(request, 'pages/index.html', {
+        'reviews': reviews,
+        'clientsl': clientsl
+    })
 
 
 def about(request):

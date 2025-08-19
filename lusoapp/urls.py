@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.urls import path
 from .import views
+from django.views.generic.base import RedirectView
 from lusoapp.views import healthz
 
 
 urlpatterns = [
-    path('Home', views.index, name='index'),
+    path("", RedirectView.as_view(url="/Home", permanent=False)),  # redirect / → /Home
+    path("Home", views.index, name="index"),                       # actual homepage
     path('about', views.about, name='about'),
     path('contact', views.contact, name='contact'),
     path('packages', views.packages, name='packages'),
