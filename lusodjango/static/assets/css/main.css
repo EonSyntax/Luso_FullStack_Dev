@@ -612,6 +612,17 @@ h6 {
   font-family: var(--heading-font);
 }
 
+.footer .footer-about p a {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: color-mix(in srgb, var(--contrast-color), transparent 30%);
+}
+
+.footer .footer-about p a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 30%);
+}
+
 .footer .social-links a {
   display: flex;
   align-items: center;
@@ -1219,6 +1230,27 @@ section,
   left: calc(50% - 47px);
   top: calc(50% - 47px);
 }
+
+@media (min-width: 1024px) {
+  .about .l {
+    margin-top: -30px;
+  }
+
+  .about .t {
+    margin-top: -180px;
+  }
+}
+
+@media (min-width: 992px) {
+  .about .l {
+    margin-top: -30px;
+  }
+
+  .about .t {
+    margin-top: -180px;
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Stats Section
@@ -2180,6 +2212,19 @@ section,
   font-size: 14px;
   color: color-mix(in srgb, var(--background-color), transparent 30%);
 }
+
+.contact .info-item p a {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: color-mix(in srgb, var(--background-color), transparent 30%);
+}
+
+.contact .info-item p a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 30%);
+}
+
+
 
 .contact .php-email-form {
   background-color: var(--surface-color);

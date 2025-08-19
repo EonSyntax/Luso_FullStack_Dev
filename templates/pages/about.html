@@ -7,8 +7,7 @@
 <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title dark-backgrfound" data-aos="fade" style="background-image: url(assets/img/testimonials-bg.avif);">
-      
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url('{% static "assets/img/testimonials-bg.avif" %}');">
       <div class="container position-relative">
         <h1>About Us</h1>
         <!-- <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p> -->
@@ -33,8 +32,31 @@
       <div class="container">
 
         <div class="row gy-4">
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid rounded-4 mb-4 glightbox" alt="">
+          <!-- About Image -->
+          <div class="col-lg-6 order-1 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid rounded-4 mb-4 glightbox" alt="about image">
+          </div>
+
+          <!-- Vision & Mission -->
+          <div class="col-lg-6 order-2 order-lg-2" data-aos="fade-up" data-aos-delay="250">
+            <div class="content ps-0 ps-lg-5">
+              <h3>OUR VISION</h3>
+              <ul>
+                <li><i class="bi bi-check-circle-fill"></i> 
+                  <span>To redefine branding by creating authentic, impactful identities and strategies that empower you and your businesses to lead, connect and thrive globally.</span></li>
+              </ul>
+              <br>
+              <h3>OUR MISSION</h3>
+              <ul>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Building a strong visual and emotional brand identity, create go-to-market strategies, and align internal culture and leadership.</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>We aim to redefine brand strategies, conduct in-depth market research, and develop compelling brand guidelines that resonate with diverse industries.</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Our goal is to help businesses thrive in competitive markets by crafting authentic and innovative brand stories that attract both investors and customers.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Main Heading + Paragraphs -->
+          <div class="l col-lg-6 order-3 order-lg-3" data-aos="fade-up" data-aos-delay="300">
             <h3>Luso Integrate: A Decade of Integration, A Future of Innovation</h3>
             <p>For 10 years, Luso Integrate Ltd has been shaping how businesses connect, evolve, and thrive across dynamic sectors and communities.</p>
             <p>We’ve spent a decade refining our approach—merging strategy, creativity, and innovation to build resilient, future-ready brands and systems. Our journey has been about more than delivering services—it’s been about engineering meaningful impact through intelligent integration.</p>
@@ -43,28 +65,24 @@
             <p>Now, with our official launch into a new era, we’re ready to take those moves further—helping our clients not only adapt, but lead. Together with our partners, we’re shaping futures where people, technology, and purpose converge.</p>
             <p>By making customers co-creators in the process, we empower our clients to build enduring value, spark new desires, and deliver functional innovation that matters.</p>
             <p>Ten years was just the beginning. The next chapter is iconic.</p>
-          
           </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-            <div class="content ps-0 ps-lg-5">
-              <h3>OUR MISSION</h3>
-              <ul>
-                <li><i class="bi bi-check-circle-fill"></i> <span>Building a strong visual and emotional brand identity, create go-to-market strategies, and align internal culture and leadership with external messaging is our mission.</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span>We aim to redefine brand strategies, conduct in-depth market research, and develop compelling brand guidelines that resonate with diverse industries.</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span>Our goal is to help businesses thrive in competitive markets by crafting authentic and innovative brand stories that attract both investors and customers.</span></li>
-              </ul>
-              <p>
-                Our team combines creative designers, strategic thinkers, and branding specialists who understand the power of intentional storytelling. Whether it's crafting go-to-market campaigns or refining internal culture to reflect external messaging, we bring cohesion to every facet of your brand ecosystem.
-              </p>
 
-              <div class="position-relative mt-4">
-                <img src="{% static 'assets/img/about-2.jpg' %}" class="img-fluid rounded-4 glightbox" alt="">
-                <a href="{% static 'assets/video/team.mp4' %}" class="glightbox pulsating-play-btn" data-gallery="video" data-type="video"></a>
-              </div>
+          <!-- Video + About-2 Image -->
+          <div class="col-lg-6 order-4 order-lg-4" data-aos="fade-up" data-aos-delay="350">
+            <div class="position-relative mt-4">
+              <img src="{% static 'assets/img/about-2.jpg' %}" class="img-fluid rounded-4 glightbox" alt="">
+              <a href="{% static 'assets/video/team.mp4' %}" class="glightbox pulsating-play-btn" data-gallery="video" data-type="video"></a>
             </div>
           </div>
-        </div>
 
+          <!-- Final Paragraph -->
+          <div class="t col-lg-6 order-5 offset-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <p>
+              Our team combines creative designers, strategic thinkers, and branding specialists who understand the power of intentional storytelling. Whether it's crafting go-to-market campaigns or refining internal culture to reflect external messaging, we bring cohesion to every facet of your brand ecosystem.
+            </p>
+          </div>
+
+        </div>
       </div>
 
     </section><!-- /About Section -->
