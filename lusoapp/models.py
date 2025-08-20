@@ -9,6 +9,7 @@ class Clients_logo(models.Model):
         'image', 
         default="https://res.cloudinary.com/demo/image/upload/sample.jpg"
     )
+    Brand_Url = models.URLField(max_length=200, blank=True, null=True)
     order = models.PositiveIntegerField(default=0)
 
     class Meta:
@@ -31,7 +32,7 @@ class Testimonial(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(5)],
         help_text="Rating (1 to 5 stars)"
     )
-   # project = models.ForeignKey('Project', on_delete=models.SET_NULL, null=True, blank=True, related_name='testimonials')
+    project = models.ForeignKey('Project', on_delete=models.SET_NULL, null=True, blank=True, related_name='testimonials')
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
@@ -40,3 +41,33 @@ class Testimonial(models.Model):
     class Meta:
         verbose_name = 'Testimonial'
         verbose_name_plural = 'Testimonials'
+
+
+
+#Project Section
+class Project(models.Model):
+    CATEGORY_CHOICES = [
+        ('Branding', 'Branding'),
+        ('Strategy Development', 'Strategy Development'),
+    ]
+
+    project_name = models.CharField(max_length=200)
+    short_description = models.TextField(max_length=200)
+    full_description = models.TextField()
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+    launch_date = models.DateField()
+    project_url = models.URLField()
+
+    client_name = models.CharField(max_length=100)
+    client_brand = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.project_name
+
+
+class ProjectImage(models.Model):
+    project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE)
+    image = CloudinaryField('image')
+
+    def __str__(self):
+        return f"Image for {self.project.project_name}"

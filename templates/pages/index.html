@@ -67,7 +67,7 @@
             <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid rounded-4 mb-4 glightbox" alt="">
             <h3>Building Something Remarkable</h3>
             <p>At Luso Integrate, we are more than a branding agency — we are strategic partners in your business growth journey. We specialize in uniting brand identity with purposeful strategy to empower businesses with clarity, direction, and impact. Whether you’re launching a startup or reimagining an existing brand, we help you define who you are, what you stand for, and how to effectively communicate your vision to the world.</p>
-            <p>Our approach is holistic. We believe that branding is not just about aesthetics — it’s about telling a compelling story, building emotional connections, and driving sustainable business outcomes. From logo development and brand messaging to market research and strategic positioning, we ensure every element aligns with your business goals and values.</p>
+            <p>Our approach is holistic. We believe that branding is not just about aesthetics — it’s about telling a compelling story, building emotional connections, and driving sustainable business outcomes. From logo development and brand messaging to market research and strategic positioning, we ensure every element aligns with&nbsp;your&nbsp;business&nbsp;goals&nbsp;and&nbsp;values.</p>
           </div>
           
         </div>
@@ -227,21 +227,20 @@
         <div class="client-slider">
           <!-- Repeat the entire group of logos twice for smooth looping -->
           <div class="client-slide-track">
-            <!-- Add all logos here twice -->
-            <div class="client-logo"><img src="{% static 'assets/img/clients/client-1.png' %}" alt=""></div>
-            <div class="client-logo"><img src="{% static 'assets/img/clients/client-2.png' %}" alt=""></div>
-            <div class="client-logo"><img src="{% static 'assets/img/clients/client-3.png' %}" alt=""></div>
-            <div class="client-logo"><img src="{% static 'assets/img/clients/client-4.png' %}" alt=""></div>
-            <div class="client-logo"><img src="{% static 'assets/img/clients/client-5.png' %}" alt=""></div>
-            <div class="client-logo"><img src="{% static 'assets/img/clients/client-6.png' %}" alt=""></div>
 
-            <!-- Repeat logos -->
-            <div class="client-logo"><img src="{% static 'assets/img/clients/client-1.png' %}" alt=""></div>
-            <div class="client-logo"><img src="{% static 'assets/img/clients/client-2.png' %}" alt=""></div>
-            <div class="client-logo"><img src="{% static 'assets/img/clients/client-3.png' %}" alt=""></div>
-            <div class="client-logo"><img src="{% static 'assets/img/clients/client-4.png' %}" alt=""></div>
-            <div class="client-logo"><img src="{% static 'assets/img/clients/client-5.png' %}" alt=""></div>
-            <div class="client-logo"><img src="{% static 'assets/img/clients/client-6.png' %}" alt=""></div>
+           {% for repeat in "12" %}   {# loop twice for smooth looping #}
+              {% for client in clientsl %}
+                <div class="client-logo">
+                  {% if client.Brand_Url %}
+                    <a href="{{ client.Brand_Url }}" target="_blank" rel="noopener">
+                      <img src="{{ client.Brand_Logo.url }}" alt="{{ client.Brand_Name }}">
+                    </a>
+                  {% else %}
+                    <img src="{{ client.Brand_Logo.url }}" alt="{{ client.Brand_Name }}">
+                  {% endif %}
+                </div>
+              {% endfor %}
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -260,139 +259,43 @@
 
       <div class="container">
 
-          <div class="row gy-4 isotope-container mt-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <a href="#">
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            {% for key,label in categories %}
+            <li data-filter=".filter-{{ key|slugify }}">{{ label }}</li>
+            {% endfor %}
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            {% for project in projects %}
+              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ project.category|slugify }}">
                 <div class="portfolio-content h-100">
-                  <img src="{% static 'assets/img/portfolio/app-1.jpg' %}" class="img-fluid" alt="">
+                  <img src="{{ project.images.first.image.url }}" class="img-fluid" alt="">
                   <div class="portfolio-info">
-                    <h4>Strategy</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <!-- <a href="assets/img/portfolio/app-1.jpg" title="Strategy" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <!-- <a href="portfolio-details.html" title="Morrre Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
+                    <h4>{{ project.project_name }}</h4>
+                    <p>{{ project.short_description|truncatewords:10 }}</p>
+                    {% for img in project.images.all %}
+                      <a href="{{ img.image.url }}" 
+                        title="Preview Images" 
+                        data-gallery="portfolio-gallery-{{ project.id }}" 
+                        class="glightbox preview-link">
+                        {% if forloop.first %}<i class="bi bi-zoom-in"></i>{% endif %}
+                      </a>
+                    {% endfor %}
+                    <a href="{% url 'project_detail' project.id %}" title="More Details" class="details-link">
+                      <i class="bi bi-link-45deg"></i>
+                    </a>
                   </div>
                 </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <a href="#">
-                <div class="portfolio-content h-100">
-                  <img src="{% static 'assets/img/portfolio/branding-1.jpg' %}" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>Branding</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <!-- <a href="assets/img/portfolio/app-1.jpg" title="Strategy" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <!-- <a href="portfolio-details.html" title="Morrre Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
-                  </div>
-                </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <a href="#">
-                <div class="portfolio-content h-100">
-                  <img src="{% static 'assets/img/portfolio/books-1.jpg' %}" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>Strategy</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <!-- <a href="assets/img/portfolio/app-1.jpg" title="Strategy" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <!-- <a href="portfolio-details.html" title="Morrre Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
-                  </div>
-                </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <a href="#">
-                <div class="portfolio-content h-100">
-                  <img src="{% static 'assets/img/portfolio/app-2.jpg' %}" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>Branding</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <!-- <a href="assets/img/portfolio/app-1.jpg" title="Strategy" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <!-- <a href="portfolio-details.html" title="Morrre Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
-                  </div>
-                </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <a href="#">
-                <div class="portfolio-content h-100">
-                  <img src="{% static 'assets/img/portfolio/books-2.jpg' %}" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>Strategy</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <!-- <a href="assets/img/portfolio/app-1.jpg" title="Strategy" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <!-- <a href="portfolio-details.html" title="Morrre Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
-                  </div>
-                </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <a href="#">
-                <div class="portfolio-content h-100">
-                  <img src="{% static 'assets/img/portfolio/branding-2.jpg' %}" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>Branding</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <!-- <a href="assets/img/portfolio/app-1.jpg" title="Strategy" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <!-- <a href="portfolio-details.html" title="Morrre Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
-                  </div>
-                </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-            
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <a href="#">
-                <div class="portfolio-content h-100">
-                  <img src="{% static 'assets/img/portfolio/books-3.jpg' %}" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>Strategy</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <!-- <a href="assets/img/portfolio/app-1.jpg" title="Strategy" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <!-- <a href="portfolio-details.html" title="Morrre Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
-                  </div>
-                </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <a href="#">
-                <div class="portfolio-content h-100">
-                  <img src="{% static 'assets/img/portfolio/app-3.jpg' %}" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>Branding</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <!-- <a href="assets/img/portfolio/app-1.jpg" title="Strategy" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <!-- <a href="portfolio-details.html" title="Morrre Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
-                  </div>
-                </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <a href="#">
-                <div class="portfolio-content h-100">
-                  <img src="{% static 'assets/img/portfolio/branding-3.jpg' %}" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>Branding</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <!-- <a href="assets/img/portfolio/app-1.jpg" title="Strategy" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <!-- <a href="portfolio-details.html" title="Morrre Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
-                  </div>
-                </div>
-              </a>
-            </div><!-- End Portfolio Item -->
-
-            
+              </div>
+            {% endfor %}
 
           </div><!-- End Portfolio Container -->
+
+        </div>
 
       </div>
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Clients_logo, Testimonial
+from .models import Clients_logo, Project, Testimonial, ProjectImage
 
 admin.site.site_header = "Luso Site Administration Portal"          # top-left header text
 admin.site.site_title = "Luso Site Admin Portal"    # browser tab title
@@ -34,3 +34,15 @@ class TestimonialAdmin(admin.ModelAdmin):
         except (TypeError, ValueError):
             return "Invalid rating"
     star_rating_display.short_description = "Rating"
+
+
+# Register for Project model
+class ProjectImageInline(admin.TabularInline):
+    model = ProjectImage
+    extra = 1
+
+class ProjectAdmin(admin.ModelAdmin):
+    inlines = [ProjectImageInline]
+    list_display = ('project_name', 'category', 'launch_date', 'client_name')
+
+admin.site.register(Project, ProjectAdmin)
