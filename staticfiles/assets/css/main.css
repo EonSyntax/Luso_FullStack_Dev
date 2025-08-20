@@ -660,11 +660,11 @@ h6 {
 }
 
 .footer .footer-links ul i {
-  padding-right: 3px;
+  padding-right: 7px;
   font-size: 13px;
   line-height: 0;
   color: var(--accent-color);
-  margin-top: -1px;
+  margin-top: 0px;
 }
 
 .footer .footer-links ul li {
