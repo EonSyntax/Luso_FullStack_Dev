@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent  # -> .../lusointegrate
 # Core flags
 # -------------------------------------------------------------------
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-unsafe-default")
-DEBUG = os.getenv("DEBUG", "0") in ("1", "true", "True")
+DEBUG = os.getenv("DEBUG", "false").lower() in ("1", "true", "True", "yes")
 
 # Comma-separated hostnames
 ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS", "").split(",") if h.strip()]
@@ -150,6 +150,7 @@ CLOUDINARY_STORAGE = {
     "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME"),
     "API_KEY": os.getenv("CLOUDINARY_API_KEY"),
     "API_SECRET": os.getenv("CLOUDINARY_API_SECRET"),
+    "FOLDER": "ServerSide" if not DEBUG else "",  # empty string = root
 }
 
 # Use "ServerSide/" folder for production uploads, plain root for local
