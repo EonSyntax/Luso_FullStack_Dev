@@ -150,12 +150,12 @@ CLOUDINARY_STORAGE = {
     "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME"),
     "API_KEY": os.getenv("CLOUDINARY_API_KEY"),
     "API_SECRET": os.getenv("CLOUDINARY_API_SECRET"),
-    "FOLDER": "ServerSide" if not DEBUG else "",  # empty string = root
+    "FOLDER": "Home/ServerSide" if not DEBUG else "",  # empty string = root
 }
 
 # Use "ServerSide/" folder for production uploads, plain root for local
 if not DEBUG:
-    CLOUDINARY_STORAGE["FOLDER"] = "ServerSide"
+    CLOUDINARY_STORAGE["FOLDER"] = "Home/ServerSide"
 
 
 # -------------------------------------------------------------------
