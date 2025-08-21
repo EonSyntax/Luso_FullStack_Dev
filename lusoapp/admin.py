@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Clients_logo, Project, Testimonial, ProjectImage
+from .models import Clients_logo, Project, Testimonial, ProjectImage, BlogPost  
 
 admin.site.site_header = "Luso Site Administration Portal"          # top-left header text
 admin.site.site_title = "Luso Site Admin Portal"    # browser tab title
@@ -46,3 +46,10 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display = ('project_name', 'category', 'launch_date', 'client_name')
 
 admin.site.register(Project, ProjectAdmin)
+
+
+@admin.register(BlogPost)
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'created_at', 'updated_at')
+    search_fields = ('title', 'author__username')
+    list_filter = ('created_at', 'updated_at')

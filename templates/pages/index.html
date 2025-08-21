@@ -282,12 +282,12 @@
                         title="Preview Images" 
                         data-gallery="portfolio-gallery-{{ project.id }}" 
                         class="glightbox preview-link">
-                        {% if forloop.first %}<i class="bi bi-zoom-in"></i>{% endif %}
+                        {% if forloop.first %}<i class="bi bi-arrows-fullscreen"></i>{% endif %}
                       </a>
                     {% endfor %}
-                    <a href="{% url 'project_detail' project.id %}" title="More Details" class="details-link">
-                      <i class="bi bi-link-45deg"></i>
-                    </a>
+                    <!-- <a href="{% url 'project_detail' project.id %}" title="More Details" class="details-link">
+                      <i class="bi bi-box-arrow-right"></i>
+                    </a> -->
                   </div>
                 </div>
               </div>

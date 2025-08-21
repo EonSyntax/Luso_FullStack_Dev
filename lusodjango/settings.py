@@ -144,7 +144,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Media files (Cloudinary in dev & prod)
 # -------------------------------------------------------------------
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-MEDIA_URL = "/media/"  # not actually used for serving; Cloudinary returns absolute URLs
+MEDIA_URL = "/media/"  # Cloudinary returns full absolute URLs
 
 CLOUDINARY_STORAGE = {
     "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME"),
@@ -152,18 +152,29 @@ CLOUDINARY_STORAGE = {
     "API_SECRET": os.getenv("CLOUDINARY_API_SECRET"),
 }
 
+# Use "ServerSide/" folder for production uploads, plain root for local
+if not DEBUG:
+    CLOUDINARY_STORAGE["FOLDER"] = "ServerSide"
+
+
 # -------------------------------------------------------------------
-# Security (common production hardening)
+# Security (production hardening)
 # -------------------------------------------------------------------
-# Render (and most PaaS) sit behind a proxy; this preserves scheme
+# Ensure HTTPS detection behind a proxy (e.g., Render, Heroku, etc.)
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
-# In production you usually want these:
 if not DEBUG:
+    # Cookies only sent via HTTPS
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    SECURE_HSTS_SECONDS = 60 * 60 * 24 * 30  # 30 days (tune as needed)
+
+    # Enforce strict transport security
+    SECURE_HSTS_SECONDS = 60 * 60 * 24 * 30  # 30 days
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
+
+# -------------------------------------------------------------------
+# Default primary key field type
+# -------------------------------------------------------------------
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

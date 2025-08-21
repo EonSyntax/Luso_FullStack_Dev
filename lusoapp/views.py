@@ -1,7 +1,9 @@
+from urllib import request
 from django.shortcuts import render, get_object_or_404
-from .models import Clients_logo, Testimonial, Project
+from .models import Clients_logo, Testimonial, Project, BlogPost
 from django.http import HttpResponse
 from django.db import connection
+from django.http import JsonResponse
 
 # Create your views here.
 def index(request):
@@ -36,7 +38,25 @@ def strategy(request):
 
 
 def blog(request):
-    return render(request, 'pages/blog.html')
+    blogs = BlogPost.objects.all()
+    return render(request, 'pages/blog.html', {
+        'blogs': blogs
+    })
+
+
+def like_blog(request, pk):
+    blog = get_object_or_404(BlogPost, pk=pk)
+
+    session_key = f"liked_blog_{pk}"
+    if not request.session.get(session_key, False):
+        blog.likes += 1
+        blog.save()
+        request.session[session_key] = True  # mark as liked
+
+    return JsonResponse({"likes": blog.likes})
+
+
+
 
 
 def branding(request):
@@ -45,6 +65,18 @@ def branding(request):
 
 def packages(request):
     return render(request, 'pages/packages.html')
+
+def blog_detail(request, pk):
+    blog = get_object_or_404(BlogPost, pk=pk)
+
+    # 👁 prevent multiple reloads counting as new views
+    session_key = f"viewed_blog_{pk}"
+    if not request.session.get(session_key, False):
+        blog.views += 1
+        blog.save()
+        request.session[session_key] = True
+
+    return render(request, 'pages/blog_detail.html', {'blog': blog})
 
 
 def healthz(request):
@@ -66,4 +98,4 @@ def project_detail(request, pk):
         'reviews': reviews,
         "images": images,
     })
-    
+

@@ -71,3 +71,21 @@ class ProjectImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.project.project_name}"
+    
+
+class BlogPost(models.Model):
+    title = models.CharField(max_length=200)
+    short_description = models.TextField(max_length=300)
+    content = models.TextField()
+    quote = models.TextField(max_length=300, blank=True, null=True)
+    read_time = models.IntegerField("In Minutes", default=1)
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    image = CloudinaryField('image', default="https://res.cloudinary.com/demo/image/upload/sample.jpg")
+
+    views = models.PositiveIntegerField(default=0)   # 👁
+    likes = models.PositiveIntegerField(default=0)   # ❤️
+
+    def __str__(self):
+        return self.title
