@@ -26,7 +26,7 @@ class Testimonial(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     designation = models.CharField(max_length=100)
-    review = models.TextField(max_length=100)
+    review = models.TextField(max_length=150)
     photo = CloudinaryField('image')
     rating = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)],
