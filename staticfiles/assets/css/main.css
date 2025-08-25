@@ -2690,6 +2690,14 @@ Blog Details
     margin-bottom: 2rem;
 }
 
+.article-subtitle p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+
 .article-image {
     width: 100%;
     height: 300px;

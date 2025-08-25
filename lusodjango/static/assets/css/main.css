@@ -2688,7 +2688,16 @@ Blog Details
     font-size: 1.1rem;
     line-height: 1.5;
     margin-bottom: 2rem;
+
+    /* FIX */
+    word-wrap: break-word;       /* old fallback */
+    overflow-wrap: break-word;   /* modern standard */
+    word-break: break-word;      /* ensures breaking inside long strings */
+    max-width: 100%;             /* stay inside parent */
+    white-space: normal;         /* prevent single-line overflow */
 }
+
+
 
 .article-image {
     width: 100%;

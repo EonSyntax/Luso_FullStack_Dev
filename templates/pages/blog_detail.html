@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+{% include 'includes/navbar.html'%}
+
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url('{% static "assets/img/testimonials-bg.avif" %}');">
+      <div class="container position-relative">
+        <h1>Blog Details</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="current">Blog Details</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+<!-- Blog Details Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 class="df">Blog</h2>
+        <p>Details about the blog post</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Main Article -->
+                <article class="main-content">
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span><i class="far fa-user"></i>{{ blog.author.username }}</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="fas fa-calendar-check"></i> {{ blog.created_at|date:"M d, Y" }}</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="far fa-clock"></i> {{ blog.read_time }} min read</span>
+                        </div>
+
+                        <h1 class="article-title">{{ blog.title }}</h1>
+
+                        <p class="article-subtitle">
+                          {{ blog.sub_heading }}
+                        </p>
+                    </div>
+                    
+                    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="article-image">
+                    
+                    <div class="article-content">
+                        {{ blog.content|linebreaks }}
+                        
+                        {% if blog.quote %}
+                        <div class="quote-box">
+                            "{{ blog.quote }}"
+                        </div>
+                        {% endif %}
+
+                        {% if blog.sub_heading2 %}
+                        <h4>{{ blog.sub_heading2 }}</h4>
+                        {% endif %}
+
+                        {% if blog.image2 %}
+                        <img src="{{ blog.image2.url }}" alt="{{ blog.title }}" class="article-image">
+                        {% endif %}
+
+                        {% if blog.content2 %}
+                        {{ blog.content2|linebreaks }}
+                        {% endif %}
+                    </div>
+                    
+                    {% if blog.quote2 %}
+                    <div class="quote-box">
+                        "{{ blog.quote2 }}"
+                    </div>
+                    {% endif %}
+
+                    <div class="social-share">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-linkedin-in"></i>
+                        <i class="fas fa-link"></i>
+                        
+                        <div class="article-stats">
+                            <span><i class="bi bi-eye"></i> {{ blog.views }} views</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="bi bi-heart"></i> {{ blog.likes }} likes</span>
+                            <span class="mx-2">•</span>
+                            <span>0 comments</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="col-lg-4">
+                <!-- Recent Posts Sidebar -->
+                <div class="recent-posts">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5>Recent Posts</h5>
+                        <a href="{% url 'blog' %}" class="text-decoration-none small">See All</a>
+                    </div>
+                    
+                    {% for post in recent_posts %}
+                    <div class="post-card">
+                        <a href="{% url 'blog_detail' post.id %}">
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                        </a>
+                        <div class="post-card-body">
+                            <h6 class="post-title">{{ post.title }}</h6>
+                            <p class="post-excerpt">{{ post.short_description|truncatechars:100 }}</p>
+                            <div class="post-meta">
+                                <span><i class="far fa-eye"></i> {{ post.views }}</span>
+                                <div class="post-stats">
+                                    <span><i class="far fa-heart"></i> {{ post.likes }}</span>
+                                    <span><i class="far fa-comment"></i> 0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div><!-- /Blog Details Section -->
+
+  </main>
+
+{% include 'includes/footer.html' %}
+
+  {% endblock %}

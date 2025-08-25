@@ -76,7 +76,13 @@ def blog_detail(request, pk):
         blog.save()
         request.session[session_key] = True
 
-    return render(request, 'pages/blog_detail.html', {'blog': blog})
+    # get recent posts (excluding the current one)
+    recent_posts = BlogPost.objects.exclude(pk=pk).order_by('-created_at')[:3]
+
+    return render(request, 'pages/blog_detail.html', {
+        'blog': blog, 
+        'recent_posts': recent_posts
+    })
 
 
 def healthz(request):

@@ -76,17 +76,21 @@ class ProjectImage(models.Model):
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)
-    short_description = models.TextField(max_length=300)
-    content = models.TextField()
+    sub_heading = models.TextField(max_length=300)
+    image = CloudinaryField('image', blank=True, null=True)
+    content = models.TextField(blank=True, null=True)
     quote = models.TextField(max_length=300, blank=True, null=True)
+    sub_heading2 = models.CharField(max_length=200, blank=True, null=True)
+    image2 = CloudinaryField('image', blank=True, null=True)
+    content2 = models.TextField(blank=True, null=True)
+    quote2 = models.TextField(max_length=300, blank=True, null=True)
     read_time = models.IntegerField("In Minutes", default=1)
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = CloudinaryField('image', default="https://res.cloudinary.com/demo/image/upload/sample.jpg")
 
-    views = models.PositiveIntegerField(default=0)   # 👁
-    likes = models.PositiveIntegerField(default=0)   # ❤️
+    views = models.PositiveIntegerField(default=0, blank=True, null=True)   # 👁
+    likes = models.PositiveIntegerField(default=0, blank=True, null=True)   # ❤️
 
     def __str__(self):
         return self.title
