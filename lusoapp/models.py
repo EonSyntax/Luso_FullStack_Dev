@@ -47,16 +47,17 @@ class Testimonial(models.Model):
 #Project Section
 class Project(models.Model):
     CATEGORY_CHOICES = [
+        ('Creative & Visual Design', 'Creative & Visual Design'),
+        ('Web Development', 'Web Development'),
         ('Branding', 'Branding'),
-        ('Strategy Development', 'Strategy Development'),
     ]
 
     project_name = models.CharField(max_length=200)
     short_description = models.TextField(max_length=200)
-    full_description = models.TextField()
+    # full_description = models.TextField()
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     launch_date = models.DateField()
-    project_url = models.URLField()
+    project_url = models.URLField(blank=True, null=True)
 
     client_name = models.CharField(max_length=100)
     client_brand = models.CharField(max_length=100)

@@ -67,6 +67,12 @@ body {
   font-family: var(--default-font);
 }
 
+/* Prevent scroll while preloader is visible */
+body.loading {
+  overflow: hidden;
+}
+
+
 a {
   color: var(--accent-color);
   text-decoration: none;
@@ -743,40 +749,6 @@ h6 {
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  overflow: hidden;
-  background: var(--background-color);
-  transition: all 0.6s ease-out;
-}
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
-}
-
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 /*--------------------------------------------------------------
 # Scroll Top Button
@@ -1391,8 +1363,8 @@ section,
   padding: 0px 40px;
   max-width: 90%;
   transition: 0.3s;
-  opacity: 0.5;
-  filter: grayscale(100);
+  opacity: 1;
+  /* filter: grayscale(100); */
 }
 
 .clients .client-logo img:hover {
@@ -1437,8 +1409,8 @@ section,
 .client-slide-track .client-logo img {
   max-width: 100%;
   height: auto;
-  filter: grayscale(100%);
-  opacity: 0.5;
+  /* filter: grayscale(100%); */
+  opacity: 1;
   transition: all 0.3s ease;
 }
 
@@ -1922,12 +1894,29 @@ section,
   color: rgba(255, 255, 255, 0.8);
 }
 
-.portfolio .portfolio-content .portfolio-info .preview-link,
-.portfolio .portfolio-content .portfolio-info .details-link {
+/* Default (when URL exists) */
+.portfolio .portfolio-content .portfolio-info .preview-link {
   position: absolute;
-  left: calc(50% - 40px);
+  left: 40%;
   font-size: 26px;
   top: calc(50% - 14px);
+  color: #fff;
+  transition: 0.3s;
+  line-height: 1.2;
+}
+
+/* Center preview link when no URL */
+.portfolio .portfolio-content .portfolio-info.no-url .preview-link {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.portfolio .portfolio-content .portfolio-info .details-link {
+  position: absolute;
+  right: 40%;
+  font-size: 34px;
+  top: calc(50% - 17.8px);
   color: #fff;
   transition: 0.3s;
   line-height: 1.2;
@@ -1938,11 +1927,12 @@ section,
   color: var(--accent-color);
 }
 
-.portfolio .portfolio-content .portfolio-info .details-link {
+/* .portfolio .portfolio-content .portfolio-info .details-link {
   left: 50%;
   font-size: 34px;
   line-height: 0;
-}
+  top: 10%;
+} */
 
 .portfolio .portfolio-content:hover .portfolio-info {
   opacity: 1;

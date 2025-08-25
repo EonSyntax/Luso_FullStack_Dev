@@ -118,7 +118,7 @@
             <div class="stats-item d-flex align-items-center w-100 h-100">
               <i class="bi bi-people color-pink flex-shrink-0"></i>
               <div>
-                <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter"></span>
                 <p>Pro Team</p>
               </div>
             </div>
@@ -152,7 +152,7 @@
                 <div class="icon">
                   <i class="bi bi-easel"></i>
                 </div>
-                <a href="branding.html" class="stretched-link">
+                <a href="{% url 'branding' %}" class="stretched-link">
                   <h3>Branding</h3>
                 </a>
                 <ul>
@@ -177,7 +177,7 @@
                 <div class="icon">
                   <i class="bi bi-broadcast"></i>
                 </div>
-                <a href="" class="stretched-link">
+                <a href="{% url 'strategy' %}" class="stretched-link">
                   <h3>Strategy Development</h3>
                 </a>
                 <ul>
@@ -262,9 +262,11 @@
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
+            <!-- <li data-filter="*" class="filter-active">All</li> -->
             {% for key,label in categories %}
-            <li data-filter=".filter-{{ key|slugify }}">{{ label }}</li>
+            <li data-filter=".filter-{{ key|slugify }}" {% if forloop.first %}class="filter-active"{% endif %}>
+              {{ label }}
+            </li>
             {% endfor %}
           </ul><!-- End Portfolio Filters -->
 
@@ -274,9 +276,10 @@
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ project.category|slugify }}">
                 <div class="portfolio-content h-100">
                   <img src="{{ project.images.first.image.url }}" class="img-fluid" alt="">
-                  <div class="portfolio-info">
+                  <div class="portfolio-info {% if not project.project_url %}no-url{% endif %}">
                     <h4>{{ project.project_name }}</h4>
                     <p>{{ project.short_description|truncatewords:10 }}</p>
+
                     {% for img in project.images.all %}
                       <a href="{{ img.image.url }}" 
                         title="Preview Images" 
@@ -285,9 +288,12 @@
                         {% if forloop.first %}<i class="bi bi-arrows-fullscreen"></i>{% endif %}
                       </a>
                     {% endfor %}
-                    <!-- <a href="{% url 'project_detail' project.id %}" title="More Details" class="details-link">
-                      <i class="bi bi-box-arrow-right"></i>
-                    </a> -->
+
+                    {% if project.project_url %}
+                      <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" title="View Project" class="details-link">
+                        <i class="bi bi-box-arrow-right"></i>
+                      </a>
+                    {% endif %}
                   </div>
                 </div>
               </div>

@@ -34,6 +34,35 @@
 
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <style>
+    /* 
+      Preloader Styling
+    */
+
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      background: #0f332f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #preloader:before {
+      content: "";
+      border: 6px solid #fff;
+      border-color: #bad955 transparent #bad955;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1.5s linear infinite;
+    }
+    @keyframes spin { 
+      0% { transform: rotate(0deg); } 
+      100% { transform: rotate(360deg); } 
+    }
+  </style>
 </head>
 
 <body class="index-page">
