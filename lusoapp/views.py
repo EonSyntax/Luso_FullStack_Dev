@@ -106,7 +106,4 @@ def project_detail(request, pk):
     })
 
 def lsiintelligence(request):
-    reviews = Testimonial.objects.all()
-    return render(request, 'pages/lsiintelligence.html', {
-        'reviews': reviews,
-    })
+    return render(request, 'pages/lsiintelligence.html')
