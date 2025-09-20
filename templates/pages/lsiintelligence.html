@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static custom_filters %}
+
+{% include 'includes/navbar.html'%}
+
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url('{% static "assets/img/testimonials-bg.avif" %}');">
+      <div class="container position-relative">
+        <h1>LSI Intelligence</h1>
+        <!-- <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p> -->
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="current">LSI Intelligence</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- LSI Intelligence Section -->
+    <section id="about" class="lsiintelligence section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 class="df">LSI Intelligence</h2>
+        <p>COMING SOON<br></p>
+      </div>
+
+      <div class="container">
+        <div class="row align-items-center g-4">
+          
+          <!-- Picture11 -->
+          <div class="col-lg-4 col-md-4 col-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <img src="{% static 'assets/img/picture11.png' %}" class="img-fluid rounded-4 glightbox" alt="about image">
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-12 d-flex text-center align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="250">
+            <div class="content text-center text-md-start">
+              <h3>LUSO Inventive Intelligence <br>(LSI Intelligence)</h3>
+                  <span>LSI Intelligence is an innovative service model that uses AI and data modelling to invent and refine brand strategies.</span>
+              <h3 class="coming-soon">COMING SOON</h3>
+            </div>
+          </div>
+
+          <!-- Picture22 -->
+          <div class="col-lg-4 col-md-4 col-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="350">
+            <img src="{% static 'assets/img/picture22.png' %}" class="img-fluid rounded-4 glightbox" alt="about image">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+</main>
+
+{% include 'includes/footer.html' %}
+
+  {% endblock %}

@@ -33,4 +33,5 @@ urlpatterns = [
     path('branding', views.branding, name='branding'),
     path("healthz/", healthz, name="healthz"),
     path('projects/<int:pk>/', views.project_detail, name='project_detail'),
+    path('lsiintelligence', views.lsiintelligence, name='lsiintelligence'),
 ]

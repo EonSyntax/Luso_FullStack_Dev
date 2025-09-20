@@ -105,3 +105,8 @@ def project_detail(request, pk):
         "images": images,
     })
 
+def lsiintelligence(request):
+    reviews = Testimonial.objects.all()
+    return render(request, 'pages/lsiintelligence.html', {
+        'reviews': reviews,
+    })
