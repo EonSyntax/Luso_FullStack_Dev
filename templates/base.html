@@ -17,7 +17,7 @@
   <meta property="og:title" content="LusoIntegrate" />
   <meta property="og:description" content="At Luso Integrate, we merge branding and strategy to craft compelling solutions that elevate businesses." />
   <meta property="og:url" content="{{ request.build_absolute_uri }}" />
-  <meta property="og:image" content="{{ request.build_absolute_uri }}static/assets/img/metatag.png" />
+  <meta property="og:image" content="{{ request.build_absolute_uri|cut:request.path }}{% static 'assets/img/metatag.png' %}" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="LusoIntegrate" />
