@@ -15,9 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.conf import settings
+from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('lusoapp.urls')),
+]
+
+# Google Search Console verification
+urlpatterns += [
+    re_path(
+        r'^(?P<path>google[0-9a-zA-Z]+\.html)$',
+        serve,
+        {'document_root': settings.STATIC_ROOT},
+    ),
 ]
