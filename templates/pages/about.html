@@ -31,15 +31,25 @@
 
       <div class="container">
 
+        <style>
+          /* constrain about page image to viewport height */
+          .about-img {
+            max-height: 80vh;
+            width: 100%;
+            max-width: 100%;
+            object-fit: contain;
+          }
+        </style>
+
         <div class="row gy-4">
           <!-- About Image -->
           <div class="col-lg-6 order-1 order-lg-1" data-aos="fade-up" data-aos-delay="100">
-            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid rounded-4 mb-4 glightbox" alt="about image">
+            <img src="{% static 'assets/img/storytelling.jpeg' %}" class="img-fluid rounded-4 mb-5 glightbox about-img" alt="about image">
           </div>
 
           <!-- Vision & Mission -->
           <div class="col-lg-6 order-2 order-lg-2" data-aos="fade-up" data-aos-delay="250">
-            <div class="content ps-0 ps-lg-5">
+            <div class="content ps-0 mt-5 ps-lg-2">
               <h3>OUR VISION</h3>
               <ul>
                 <li><i class="bi bi-check-circle-fill"></i> 

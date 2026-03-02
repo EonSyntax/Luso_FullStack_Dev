@@ -1,211 +1,365 @@
-{% extends 'base.html' %}
-{% block content %}
-{% load static custom_filters %}
-
+{% extends 'base.html' %} {% block content %} {% load static custom_filters %}
 {% include 'includes/navbar.html'%}
 
-  <main class="main">
+<main class="main">
+  <!-- Hero Section -->
+  <section id="hero-slider" class="hero section dark-background">
+    <div class="hero-slide active">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="hero-video"
+        data-aos="fade-in"
+      >
+        <source src="{% static 'assets/video/mec.mp4' %}" type="video/mp4" />
+        <!-- Optional fallback -->
+        Your browser does not support the video tag.
+      </video>
 
-    <!-- Hero Section -->
-    <section id="hero-slider" class="hero section dark-background">
-      <div class="hero-slide active">
-        <video autoplay muted loop playsinline class="hero-video" data-aos="fade-in">
-          <source src="{% static 'assets/video/mec.mp4' %}" type="video/mp4">
-          <!-- Optional fallback -->
-          Your browser does not support the video tag.
-        </video>
+      <div
+        class="container d-flex flex-column align-items-center justify-content-center text-center"
+      >
+        <h2 data-aos="fade-up" data-aos-delay="100">
+          ELEVATING YOUR BRAND POTENTIAL
+        </h2>
+        <p data-aos="fade-up" data-aos-delay="200">
+          At Luso Integrate, we merge branding and strategy to craft compelling
+          solutions that elevate businesses.
+        </p>
+        <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+          <a href="{% url 'branding' %}" class="btn-get-started">Get Started</a>
+          <!--<a href="" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
+        </div>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="hero-video"
+        data-aos="fade-in"
+      >
+        <source src="{% static 'assets/video/mec.mp4' %}" type="video/mp4" />
+        <!-- Optional fallback -->
+        Your browser does not support the video tag.
+      </video>
 
-        <div class="container d-flex flex-column align-items-center justify-content-center text-center">
-          <h2 data-aos="fade-up" data-aos-delay="100">ELEVATING YOUR BRAND POTENTIAL</h2>
-          <p data-aos="fade-up" data-aos-delay="200">At Luso Integrate, we merge branding and strategy to craft compelling solutions that elevate businesses.</p>
-          <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-            <a href="{% url 'branding' %}" class="btn-get-started">Get Started</a>
-            <!--<a href="" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
+      <div
+        class="container d-flex flex-column align-items-center justify-content-center text-center"
+      >
+        <h2 data-aos="fade-up" data-aos-delay="100">
+          CRAFTING IMPACTFUL BRAND STRATEGIES
+        </h2>
+        <p data-aos="fade-up" data-aos-delay="200">
+          Our focus is on helping businesses stand out, resonate with their
+          audience, and achieve enduring success through strategic brand
+          development.
+        </p>
+        <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+          <a href="{% url 'strategy' %}" class="btn-get-started">Get Started</a>
+          <!--<a href="" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="hero-nav">
+      <button class="hero-prev"><i class="bi bi-chevron-left"></i></button>
+      <button class="hero-next"><i class="bi bi-chevron-right"></i></button>
+    </div>
+  </section>
+  <!-- /Hero Section -->
+
+  <!-- About Section -->
+  <section id="about" class="about section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2 class="df">Who We Are</h2>
+      <p>OUR DNA<br /></p>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container">
+      <div class="">
+        <div
+          class="col-lg-8 text-align mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <!-- carousel inserted -->
+          <style>
+            /* ensure carousel covers available width */
+            #aboutCarousel {
+              width: 100%;
+            }
+            /* limit height of slides to 80% of viewport */
+            #aboutCarousel .carousel-inner {
+              max-height: 80vh;
+            }
+            /* center content without altering display type used by bootstrap */
+            #aboutCarousel .carousel-item {
+              text-align: center;
+              min-height: 300px;
+            }
+            #aboutCarousel img {
+              max-height: 80vh;
+              width: auto;
+              max-width: 100%;
+              object-fit: contain;
+              margin: 0 auto;
+            }
+          </style>
+          <div
+            id="aboutCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="{% static 'assets/img/storytelling.jpeg' %}"
+                  class="d-block w-100 rounded-4 mb-4"
+                  alt="About slide 1"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="{% static 'assets/img/yourstory.jpeg' %}"
+                  class="d-block w-100 rounded-4 mb-4"
+                  alt="About slide 2"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="{% static 'assets/img/craft.jpeg' %}"
+                  class="d-block w-100 rounded-4 mb-4"
+                  alt="About slide 3"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="{% static 'assets/img/Narrative.jpeg' %}"
+                  class="d-block w-100 rounded-4 mb-4"
+                  alt="About slide 4"
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#aboutCarousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#aboutCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- <h3>Building Something Remarkable</h3> -->
+          <!-- <p class="">At Luso Integrate, we are more than a branding agency — we are strategic partners in your business growth journey. We specialize in uniting brand identity with purposeful strategy to empower businesses with clarity, direction, and impact. Whether you’re launching a startup or reimagining an existing brand, we help you define who you are, what you stand for, and how to effectively communicate your vision to the world.</p> -->
+          <!-- <p class="">Our approach is holistic. We believe that branding is not just about aesthetics — it’s about telling a compelling story, building emotional connections, and driving sustainable business outcomes. From logo development and brand messaging to market research and strategic positioning, we ensure every element aligns with&nbsp;your&nbsp;business&nbsp;goals&nbsp;and&nbsp;values.</p> -->
+          <h3 class="text-center mt-5">2026: THE YEAR OF STORYTELLING</h3>
+          <p>
+            In today's competitive landscape, your brand narrative isn't just
+            marketing - it's your strategic advantage.
+          </p>
+          <p>
+            At LUSO INTEGRATE, we believe every organization has a powerful
+            story waiting to be told. The question is: are you telling it
+            effectively?
+          </p>
+          <p>
+            This year, we're helping forward-thinking businesses transform their
+            brand narratives through:
+          </p>
+          <ul>
+            <li>Strategic Branding that preserves identity</li>
+            <li>Innovative Solutions that drive growth</li>
+            <li>Sustainable Practices that ensure longevity</li>
+          </ul>
+          <p>
+            Your story matters. Your strategy matters. Your future matters.
+            Let's craft narratives that don't just capture attention—they
+            inspire action and build lasting legacy. <br /><br />
+            Ready to elevate your brand story in 2026?<br /><br />
+            <div class="d-flex justify-content-center align-items-center">
+              <a href="#our-services" class="btn-get-started"
+                >Check Our Services</a
+              >
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /About Section -->
+
+  <!-- Stats Section -->
+  <section id="stats" class="stats section light-background">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item d-flex align-items-center w-100 h-100">
+            <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i>
+            <div>
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="10"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span>
+              <p>Happy Brands</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="hero-slide">
-        <video autoplay muted loop playsinline class="hero-video" data-aos="fade-in">
-          <source src="{% static 'assets/video/mec.mp4' %}" type="video/mp4">
-          <!-- Optional fallback -->
-          Your browser does not support the video tag.
-        </video>
+        <!-- End Stats Item -->
 
-        <div class="container d-flex flex-column align-items-center justify-content-center text-center">
-          <h2 data-aos="fade-up" data-aos-delay="100">CRAFTING IMPACTFUL BRAND STRATEGIES</h2>
-          <p data-aos="fade-up" data-aos-delay="200">Our focus is on helping businesses stand out, resonate with their audience, and achieve enduring success through strategic brand development.</p>
-          <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-            <a href="{% url 'strategy' %}" class="btn-get-started">Get Started</a>
-            <!--<a href="" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item d-flex align-items-center w-100 h-100">
+            <i class="bi bi-journal-richtext color-orange flex-shrink-0"></i>
+            <div>
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="18"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span>
+              <p>Projects</p>
+            </div>
           </div>
         </div>
-      </div>
+        <!-- End Stats Item -->
 
-          <!-- Navigation -->
-      <div class="hero-nav">
-        <button class="hero-prev"><i class="bi bi-chevron-left"></i></button>
-        <button class="hero-next"><i class="bi bi-chevron-right"></i></button>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2 class="df">Who We Are</h2>
-        <p>OUR DNA<br></p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="">
-          <div class="col-lg-8 text-justify mx-auto" data-aos="fade-up" data-aos-delay="100">
-            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid rounded-4 mb-4 glightbox" alt="">
-            <!-- <h3>Building Something Remarkable</h3> -->
-            <!-- <p class="">At Luso Integrate, we are more than a branding agency — we are strategic partners in your business growth journey. We specialize in uniting brand identity with purposeful strategy to empower businesses with clarity, direction, and impact. Whether you’re launching a startup or reimagining an existing brand, we help you define who you are, what you stand for, and how to effectively communicate your vision to the world.</p> -->
-            <!-- <p class="">Our approach is holistic. We believe that branding is not just about aesthetics — it’s about telling a compelling story, building emotional connections, and driving sustainable business outcomes. From logo development and brand messaging to market research and strategic positioning, we ensure every element aligns with&nbsp;your&nbsp;business&nbsp;goals&nbsp;and&nbsp;values.</p> -->
-            <h3>2026: THE YEAR OF STORYTELLING</h3>
-            <p>In today's competitive landscape, your brand narrative isn't just marketing - it's your strategic advantage.</p>
-            <p>At LUSO INTEGRATE, we believe every organization has a powerful story waiting to be told. The question is: are you telling it effectively?</p>
-            <p>This year, we're helping forward-thinking businesses transform their brand narratives through:</p>
-            <ul>
-              <li>Strategic Branding that preserves identity</li>
-              <li>Innovative Solutions that drive growth</li>
-              <li>Sustainable Practices that ensure longevity</li>
-            </ul>
-            <p> Your story matters. Your strategy matters. Your future matters. Let's craft narratives that don't just capture attention—they inspire action and build lasting legacy.
-                <br><br>
-                Ready to elevate your brand story in 2026?<br><br> <a href="#our-services" class="btn-get-started">Check Our Services</a>
-            </p>
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item d-flex align-items-center w-100 h-100">
+            <i class="bi bi-headset color-green flex-shrink-0"></i>
+            <div>
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="1263"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span>
+              <p>Hours Of Support</p>
+            </div>
           </div>
-          
         </div>
+        <!-- End Stats Item -->
 
-      </div>
-
-    </section><!-- /About Section -->
-
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section light-background">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-emoji-smile color-blue flex-shrink-0"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Happy Brands</p>
-              </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="stats-item d-flex align-items-center w-100 h-100">
+            <i class="bi bi-people color-pink flex-shrink-0"></i>
+            <div>
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="8"
+                data-purecounter-duration="1"
+                class="purecounter"
+              ></span>
+              <p>Pro Team</p>
             </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-journal-richtext color-orange flex-shrink-0"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Projects</p>
-              </div>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-headset color-green flex-shrink-0"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="1263" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Hours Of Support</p>
-              </div>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-people color-pink flex-shrink-0"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Pro Team</p>
-              </div>
-            </div>
-          </div><!-- End Stats Item -->
-
+          </div>
         </div>
-
+        <!-- End Stats Item -->
       </div>
+    </div>
+  </section>
+  <!-- /Stats Section -->
 
-    </section><!-- /Stats Section -->
+  <!-- Services Section -->
+  <section id="services" class="services section">
+    <!-- Section Title -->
+    <div
+      id="our-services"
+      class="container section-title"
+      data-aos="fade-up"
+      style="scroll-margin-top: 100px"
+    >
+      <h2 class="df">Services</h2>
+      <p>OUR CORE<br /></p>
+    </div>
+    <!-- End Section Title -->
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div id="our-services" class="container section-title" data-aos="fade-up" style="scroll-margin-top: 100px;">
-        <h2 class="df">Services</h2>
-        <p>OUR CORE<br></p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5 justify-content-center">
-
-          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="service-item">
-              <div class="img">
-                <img src="{% static 'assets/img/services-1.jpg' %}" class="img-fluid" alt="">
-              </div>
-              <div class="details position-relative">
-                <div class="icon">
-                  <i class="bi bi-easel"></i>
-                </div>
-                <a href="{% url 'branding' %}" class="stretched-link">
-                  <h3>Branding</h3>
-                </a>
-                <ul>
-                  <li>Brand Strategy & Identity</li>
-                  <li>Creative & Visual Design</li>
-                  <li>Digital Experience & Development</li>
-                  <li>Content & Communication</li>
-                  <li>Technology & Integration Services</li>
-                  <li>Innovation Consulting & Digital Transformation</li>
-                  <li>Training, Support & Maintenance</li>
-                </ul>
-              </div>
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-5 justify-content-center">
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="service-item">
+            <div class="img">
+              <img
+                src="{% static 'assets/img/services-1.jpg' %}"
+                class="img-fluid"
+                alt=""
+              />
             </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="service-item">
-              <div class="img">
-                <img src="{% static 'assets/img/services-2.jpg' %}" class="img-fluid" alt="">
+            <div class="details position-relative">
+              <div class="icon">
+                <i class="bi bi-easel"></i>
               </div>
-              <div class="details position-relative">
-                <div class="icon">
-                  <i class="bi bi-broadcast"></i>
-                </div>
-                <a href="{% url 'strategy' %}" class="stretched-link">
-                  <h3>Strategy Development</h3>
-                </a>
-                <ul>
-                  <li>Business model development</li>
-                  <li>Market positioning &amp; competitor analysis</li>
-                  <li>Go-to-market strategies</li>
-                  <li>Strategic planning &amp; innovation</li>
-                  <li>Digital transformation strategy</li>
-                  <li>Change management or growth roadmaps</li>
-                </ul>
-              </div>
+              <a href="{% url 'branding' %}" class="stretched-link">
+                <h3>Branding</h3>
+              </a>
+              <ul>
+                <li>Brand Strategy & Identity</li>
+                <li>Creative & Visual Design</li>
+                <li>Digital Experience & Development</li>
+                <li>Content & Communication</li>
+                <li>Technology & Integration Services</li>
+                <li>Innovation Consulting & Digital Transformation</li>
+                <li>Training, Support & Maintenance</li>
+              </ul>
             </div>
-          </div><!-- End Service Item -->
+          </div>
+        </div>
+        <!-- End Service Item -->
 
-          <!-- <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+          <div class="service-item">
+            <div class="img">
+              <img
+                src="{% static 'assets/img/services-2.jpg' %}"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+            <div class="details position-relative">
+              <div class="icon">
+                <i class="bi bi-broadcast"></i>
+              </div>
+              <a href="{% url 'strategy' %}" class="stretched-link">
+                <h3>Strategy Development</h3>
+              </a>
+              <ul>
+                <li>Business model development</li>
+                <li>Market positioning &amp; competitor analysis</li>
+                <li>Go-to-market strategies</li>
+                <li>Strategic planning &amp; innovation</li>
+                <li>Digital transformation strategy</li>
+                <li>Change management or growth roadmaps</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End Service Item -->
+
+        <!-- <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
             <div class="service-item">
               <div class="img">
                 <img src="assets/img/services-3.jpg" class="img-fluid" alt="">
@@ -221,164 +375,200 @@
               </div>
             </div>
           </div>End Service Item -->
-
-        </div>
-
       </div>
+    </div>
+  </section>
+  <!-- /Services Section -->
 
-    </section><!-- /Services Section -->
+  <!-- Clients Section -->
+  <section id="clients" class="clients section light-background">
+    <div class="container section-title2" data-aos="fade-up">
+      <h2 class="df2">Client</h2>
+      <p>our clients<br /></p>
+    </div>
 
-  
-    <!-- Clients Section -->
-    <section id="clients" class="clients section light-background">
-      <div class="container section-title2" data-aos="fade-up">
-        <h2 class="df2">Client</h2>
-        <p>our clients<br></p>
-      </div>
+    <div class="client-slider-wrapper">
+      <div class="client-slider">
+        <!-- Repeat the entire group of logos twice for smooth looping -->
+        <div class="client-slide-track">
+          {% for repeat in "12" %} {# loop twice for smooth looping #}
 
-      <div class="client-slider-wrapper">
-        <div class="client-slider">
-          <!-- Repeat the entire group of logos twice for smooth looping -->
-          <div class="client-slide-track">
+          <!-- jdh -->
 
-           {% for repeat in "12" %}   {# loop twice for smooth looping #}
-              {% for client in clientsl %}
-                <div class="client-logo">
-                  {% if client.Brand_Url %}
-                    <a href="{{ client.Brand_Url }}" target="_blank" rel="noopener">
-                      <img src="{{ client.Brand_Logo.url }}" alt="{{ client.Brand_Name }}">
-                    </a>
-                  {% else %}
-                    <img src="{{ client.Brand_Logo.url }}" alt="{{ client.Brand_Name }}">
-                  {% endif %}
-                </div>
-              {% endfor %}
-            {% endfor %}
+          {% for client in clientsl %}
+
+          <div class="client-logo">
+            {% if client.Brand_Url %}
+            <a href="{{ client.Brand_Url }}" target="_blank" rel="noopener">
+              <img
+                src="{{ client.Brand_Logo.url }}"
+                alt="{{ client.Brand_Name }}"
+              />
+            </a>
+            {% else %}
+            <img
+              src="{{ client.Brand_Logo.url }}"
+              alt="{{ client.Brand_Name }}"
+            />
+            {% endif %}
           </div>
+          {% endfor %} {% endfor %}
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio section">
+    <!-- Section Title -->
+    <div class="container section-title2" data-aos="fade-up">
+      <h2 class="df">Portfolio</h2>
+      <p>CHECK OUR PORTFOLIO</p>
+    </div>
+    <!-- End Section Title -->
 
+    <div class="container">
+      <div
+        class="isotope-layout"
+        data-default-filter="*"
+        data-layout="masonry"
+        data-sort="original-order"
+      >
+        <ul
+          class="portfolio-filters isotope-filters"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <!-- <li data-filter="*" class="filter-active">All</li> -->
+          {% for key,label in categories %}
+          <li
+            data-filter=".filter-{{ key|slugify }}"
+            {%
+            if
+            forloop.first
+            %}class="filter-active"
+            {%
+            endif
+            %}
+          >
+            {{ label }}
+          </li>
+          {% endfor %}
+        </ul>
+        <!-- End Portfolio Filters -->
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
+        <div
+          class="row gy-4 isotope-container"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          {% for project in projects %}
+          <div
+            class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ project.category|slugify }}"
+          >
+            <div class="portfolio-content h-100">
+              <img
+                src="{{ project.images.first.image.url }}"
+                class="img-fluid"
+                alt=""
+              />
+              <div
+                class="portfolio-info {% if not project.project_url %}no-url{% endif %}"
+              >
+                <h4>{{ project.project_name }}</h4>
+                <p>{{ project.short_description|truncatewords:10 }}</p>
 
-      <!-- Section Title -->
-      <div class="container section-title2" data-aos="fade-up">
-        <h2 class="df">Portfolio</h2>
-        <p>CHECK OUR PORTFOLIO</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <!-- <li data-filter="*" class="filter-active">All</li> -->
-            {% for key,label in categories %}
-            <li data-filter=".filter-{{ key|slugify }}" {% if forloop.first %}class="filter-active"{% endif %}>
-              {{ label }}
-            </li>
-            {% endfor %}
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            {% for project in projects %}
-              <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ project.category|slugify }}">
-                <div class="portfolio-content h-100">
-                  <img src="{{ project.images.first.image.url }}" class="img-fluid" alt="">
-                  <div class="portfolio-info {% if not project.project_url %}no-url{% endif %}">
-                    <h4>{{ project.project_name }}</h4>
-                    <p>{{ project.short_description|truncatewords:10 }}</p>
-
-                    {% for img in project.images.all %}
-                      <a href="{{ img.image.url }}" 
-                        title="Preview Images" 
-                        data-gallery="portfolio-gallery-{{ project.id }}" 
-                        class="glightbox preview-link">
-                        {% if forloop.first %}<i class="bi bi-arrows-fullscreen"></i>{% endif %}
-                      </a>
-                    {% endfor %}
-
-                    {% if project.project_url %}
-                      <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" title="View Project" class="details-link">
-                        <i class="bi bi-box-arrow-right"></i>
-                      </a>
-                    {% endif %}
-                  </div>
-                </div>
+                {% for img in project.images.all %}
+                <a
+                  href="{{ img.image.url }}"
+                  title="Preview Images"
+                  data-gallery="portfolio-gallery-{{ project.id }}"
+                  class="glightbox preview-link"
+                >
+                  {% if forloop.first %}<i class="bi bi-arrows-fullscreen"></i
+                  >{% endif %}
+                </a>
+                {% endfor %} {% if project.project_url %}
+                <a
+                  href="{{ project.project_url }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="View Project"
+                  class="details-link"
+                >
+                  <i class="bi bi-box-arrow-right"></i>
+                </a>
+                {% endif %}
               </div>
-            {% endfor %}
-
-          </div><!-- End Portfolio Container -->
-
+            </div>
+          </div>
+          {% endfor %}
         </div>
-
+        <!-- End Portfolio Container -->
       </div>
+    </div>
+  </section>
+  <!-- /Portfolio Section -->
 
-    </section><!-- /Portfolio Section -->
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials section dark-background">
+    <div class="container section-title2" data-aos="fade-up">
+      <h2 class="df">Clients</h2>
+      <p>Testimonial's<br /></p>
+    </div>
+    <img
+      src="{% static 'assets/img/testimonials-bg.avif' %}"
+      class="testimonials-bg"
+      alt=""
+    />
 
-
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section dark-background">
-      <div class="container section-title2" data-aos="fade-up">
-        <h2 class="df">Clients</h2>
-        <p>Testimonial's<br></p>
-      </div>
-      <img src="{% static 'assets/img/testimonials-bg.avif' %}" class="testimonials-bg" alt="">
-      
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+              "delay": 5000
+            },
+            "slidesPerView": "auto",
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true
             }
-          </script>
-          <div class="swiper-wrapper">
-            {% for review in reviews %}
+          }
+        </script>
+        <div class="swiper-wrapper">
+          {% for review in reviews %}
 
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{{ review.photo.url }}" class="testimonial-img" alt="">
-                <h3>{{ review.first_name }}{{ review.last_name }}</h3>
-                <h4>{{ review.designation }}</h4>
-                <div class="stars">
-                  <span>{{ review.rating|stars }}</span>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>{{ review.review }}</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="{{ review.photo.url }}"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>{{ review.first_name }}{{ review.last_name }}</h3>
+              <h4>{{ review.designation }}</h4>
+              <div class="stars">
+                <span>{{ review.rating|stars }}</span>
               </div>
-            </div><!-- End testimonial item -->
-            {% endfor %}
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                <span>{{ review.review }}</span>
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
           </div>
-          <div class="swiper-pagination"></div>
+          <!-- End testimonial item -->
+          {% endfor %}
         </div>
-
+        <div class="swiper-pagination"></div>
       </div>
+    </div>
+  </section>
+  <!-- /Testimonials Section -->
+</main>
 
-    </section><!-- /Testimonials Section -->
-
-
-
-  </main>
-
-{% include 'includes/footer.html' %}
-
-  {% endblock %}
+{% include 'includes/footer.html' %} {% endblock %}
