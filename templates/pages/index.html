@@ -113,9 +113,10 @@
               margin: 0 auto;
             }
           </style>
+          <!-- Mobile Carousel -->
           <div
             id="aboutCarousel"
-            class="carousel slide"
+            class="d-md-none carousel slide"
             data-bs-ride="carousel"
           >
             <div class="carousel-inner">
@@ -143,6 +144,68 @@
               <div class="carousel-item">
                 <img
                   src="{% static 'assets/img/Narrative.jpeg' %}"
+                  class="d-block w-100 rounded-4 mb-4"
+                  alt="About slide 4"
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#aboutCarousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#aboutCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <!-- Tablet&Desktop Carousel -->
+          <div
+            id="aboutCarousel"
+            class="d-none d-md-block carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="{% static 'assets/img/storytellingD.png' %}"
+                  class="d-block w-100 rounded-4 mb-4"
+                  alt="About slide 1"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="{% static 'assets/img/yourstoryD.png' %}"
+                  class="d-block w-100 rounded-4 mb-4"
+                  alt="About slide 2"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="{% static 'assets/img/craftD.png' %}"
+                  class="d-block w-100 rounded-4 mb-4"
+                  alt="About slide 3"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="{% static 'assets/img/NarrativeD.png' %}"
                   class="d-block w-100 rounded-4 mb-4"
                   alt="About slide 4"
                 />
